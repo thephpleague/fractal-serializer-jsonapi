@@ -1,12 +1,12 @@
 # Fractal Serializer JSON:API
 
-[![Latest Version](https://img.shields.io/github/release/thephpleague/fractal-serializer-jsonapi.svg?style=flat-square)](https://github.com/thephpleague/fractal/releases)
+[![Latest Version](https://img.shields.io/github/release/thephpleague/fractal-serializer-jsonapi.svg?style=flat-square)](https://github.com/thephpleague/fractal-serializer-jsonapi/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
-[![Build Status](https://img.shields.io/travis/thephpleague/fractal-serializer-jsonapi/master.svg?style=flat-square&label=tests)](https://travis-ci.org/thephpleague/fractal)
-[![Build Status](https://img.shields.io/circleci/build/gh/thephpleague/fractal-serializer-jsonapi/master.svg?style=flat-square&label=code+style)](https://circleci.com/gh/thephpleague/fractal)
-[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/thephpleague/fractal-serializer-jsonapi/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/thephpleague/fractal/code-structure)
-[![Quality Score](https://img.shields.io/scrutinizer/g/thephpleague/fractal-serializer-jsonapi/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/thephpleague/fractal)
-[![Total Downloads](https://img.shields.io/packagist/dt/league/fractal-serializer-jsonapi.svg?style=flat-square)](https://packagist.org/packages/league/fractal)
+[![Build Status](https://img.shields.io/travis/thephpleague/fractal-serializer-jsonapi/master.svg?style=flat-square&label=tests)](https://travis-ci.org/thephpleague/fractal-serializer-jsonapi)
+[![Build Status](https://img.shields.io/circleci/build/gh/thephpleague/fractal-serializer-jsonapi/master.svg?style=flat-square&label=code+style)](https://circleci.com/gh/thephpleague/fractal-serializer-jsonapi)
+[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/thephpleague/fractal-serializer-jsonapi/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/thephpleague/fractal-serializer-jsonapi/code-structure)
+[![Quality Score](https://img.shields.io/scrutinizer/g/thephpleague/fractal-serializer-jsonapi/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/thephpleague/fractal-serializer-jsonapi)
+[![Total Downloads](https://img.shields.io/packagist/dt/league/fractal-serializer-jsonapi.svg?style=flat-square)](https://packagist.org/packages/league/fractal-serializer-jsonapi)
 
 Fractal provides a presentation and transformation layer for complex data output, the like found in
 RESTful APIs, and works really well with JSON. Think of this as a view layer for your JSON/YAML/etc.
