@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace League\Fractal\Test;
 
 use InvalidArgumentException;
@@ -17,7 +15,6 @@ use Mockery;
 
 class JsonApiSerializerTest extends TestCase
 {
-    /** @var Manager */
     private $manager;
 
     public function setUp() : void

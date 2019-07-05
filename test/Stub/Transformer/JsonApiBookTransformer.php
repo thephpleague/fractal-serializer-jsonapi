@@ -11,7 +11,7 @@ class JsonApiBookTransformer extends TransformerAbstract
         'author-with-meta',
     ];
 
-    public function transform(array $book)
+    public function transform($book)
     {
         $book['year'] = (int) $book['year'];
         unset($book['_author']);
