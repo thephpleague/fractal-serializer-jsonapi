@@ -56,7 +56,7 @@ class JsonApiSerializer extends ArraySerializer
      *
      * @return array
      */
-    public function serializeItem($resourceKey, array $data) : array
+    public function item($resourceKey, array $data) : array
     {
         $id = $this->getIdFromData($data);
 
@@ -104,7 +104,7 @@ class JsonApiSerializer extends ArraySerializer
      *
      * @return array
      */
-    public function serializePaginator(PaginatorInterface $paginator) : array
+    public function paginator(PaginatorInterface $paginator) : array
     {
         $currentPage = (int)$paginator->getCurrentPage();
         $lastPage = (int)$paginator->getLastPage();
