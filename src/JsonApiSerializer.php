@@ -17,7 +17,7 @@ use League\Fractal\Resource\ResourceInterface;
 
 class JsonApiSerializer extends ArraySerializer
 {
-    /** @var null|string */
+    /** @var string|null */
     protected $baseUrl;
 
     /** @var array */
@@ -468,17 +468,9 @@ class JsonApiSerializer extends ArraySerializer
         return $data;
     }
 
-    /**
-     * @param mixed $includeKey
-     * @param array $relationships
-     * @param array|null $includeObject
-     * @param string $key
-     *
-     * @return array
-     */
-    private function buildRelationships($includeKey, array $relationships, array $includeObject,  string $key) : array
+    private function buildRelationships(string $includeKey, array $relationships, array $includeObject,  string $key) : array
     {
-        $relationships = $this->addIncludekeyToRelationsIfNotSet($includeKey, $relationships);
+        $relationships = $this->addIncludeKeyToRelationsIfNotSet($includeKey, $relationships);
 
         if ($this->isNull($includeObject)) {
             $relationship = $this->null();
@@ -503,13 +495,7 @@ class JsonApiSerializer extends ArraySerializer
         return $relationships;
     }
 
-    /**
-     * @param mixed $includeKey
-     * @param array $relationships
-     *
-     * @return array
-     */
-    private function addIncludekeyToRelationsIfNotSet($includeKey, array $relationships) : array
+    private function addIncludeKeyToRelationsIfNotSet(string $includeKey, array $relationships) : array
     {
         if (!array_key_exists($includeKey, $relationships)) {
             $relationships[$includeKey] = [];
