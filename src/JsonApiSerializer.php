@@ -42,7 +42,7 @@ class JsonApiSerializer extends ArraySerializer
         $resources = [];
 
         foreach ($data as $resource) {
-            $resources[] = $this->serializeItem($resourceKey, $resource)['data'];
+            $resources[] = $this->item($resourceKey, $resource)['data'];
         }
 
         return ['data' => $resources];
