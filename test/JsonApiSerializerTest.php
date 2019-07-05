@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace League\Fractal\Test;
 
 use InvalidArgumentException;
@@ -14,9 +17,10 @@ use Mockery;
 
 class JsonApiSerializerTest extends TestCase
 {
+    /** @var Manager */
     private $manager;
 
-    public function setUp(): void
+    public function setUp() : void
     {
         $this->manager = new Manager();
         $this->manager->setSerializer(new JsonApiSerializer());
@@ -2567,64 +2571,7 @@ class JsonApiSerializerTest extends TestCase
         $this->assertSame(json_encode($expected), $scope->toJson());
     }
 
-    public function testCustomSelfLinkMerge() : void
-    {
-        $manager = new Manager();
-        $manager->setSerializer(new JsonApiSerializer('http://test.de'));
 
-        $bookData = [
-            'id' => 1,
-            'title' => 'Foo',
-            'year' => '1991',
-            '_author' => [
-                'id' => 1,
-                'name' => 'Dave',
-            ],
-            'links' => [
-                'self' => '/custom/link',
-            ],
-        ];
-
-        $resource = new Item($bookData, new JsonApiBookTransformer(), 'books');
-
-        $scope = new Scope($manager, $resource);
-
-        $expected = [
-            'data' => [
-                'type' => 'books',
-                'id' => '1',
-                'attributes' => [
-                    'title' => 'Foo',
-                    'year' => 1991,
-                ],
-                'links' => [
-                    'self' => '/custom/link',
-                ],
-                'relationships' => [
-                    'author' => [
-                        'links' => [
-                            'self' => 'http://test.de/books/1/relationships/author',
-                            'related' => 'http://test.de/books/1/author',
-                        ],
-                    ],
-                    'co-author' => [
-                        'links' => [
-                            'self' => 'http://test.de/books/1/relationships/co-author',
-                            'related' => 'http://test.de/books/1/co-author'
-                        ],
-                    ],
-                    'author-with-meta' => [
-                        'links' => [
-                            'self' => 'http://test.de/books/1/relationships/author-with-meta',
-                            'related' => 'http://test.de/books/1/author-with-meta'
-                        ],
-                    ],
-                ],
-            ],
-        ];
-
-        $this->assertSame(json_encode($expected), $scope->toJson());
-    }
 
     public function testEmptyAttributesIsObject()
     {

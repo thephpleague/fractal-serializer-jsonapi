@@ -23,12 +23,7 @@ class JsonApiSerializer extends ArraySerializer
     /** @var array */
     protected $rootObjects;
 
-    /**
-     * JsonApiSerializer constructor.
-     *
-     * @param string $baseUrl
-     */
-    public function __construct($baseUrl = null)
+    public function __construct(? string $baseUrl = null)
     {
         $this->baseUrl = $baseUrl;
         $this->rootObjects = [];
@@ -468,7 +463,7 @@ class JsonApiSerializer extends ArraySerializer
         return $data;
     }
 
-    private function buildRelationships(string $includeKey, array $relationships, array $includeObject,  string $key) : array
+    private function buildRelationships(string $includeKey, array $relationships, array $includeObject, string $key) : array
     {
         $relationships = $this->addIncludeKeyToRelationsIfNotSet($includeKey, $relationships);
 
@@ -478,7 +473,7 @@ class JsonApiSerializer extends ArraySerializer
             $relationship = [
                 'data' => [],
             ];
-        } elseif ($includeObject && $this->isCollection($includeObject)) {
+        } elseif (! empty($includeObject) && $this->isCollection($includeObject)) {
             $relationship = ['data' => []];
             $relationship = $this->addIncludedDataToRelationship($includeObject, $relationship);
         } else {
