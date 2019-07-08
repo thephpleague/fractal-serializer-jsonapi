@@ -140,6 +140,13 @@ class JsonApiSerializer extends ArraySerializer
         return ['pagination' => $pagination];
     }
 
+    /**
+     * Serialize the meta.
+     *
+     * @param array $meta
+     *
+     * @return array
+     */
     public function meta(array $meta): array
     {
         $result = [];
@@ -472,9 +479,9 @@ class JsonApiSerializer extends ArraySerializer
     /**
      * Loops over the relationships of the provided data and formats it
      *
-     * @param $data
-     * @param $relationship
-     * @param $key
+     * @param array $data
+     * @param array $relationship
+     * @param string $key
      *
      * @return array
      */
@@ -489,9 +496,9 @@ class JsonApiSerializer extends ArraySerializer
 
 
     /**
-     * @param $data
-     * @param $relationship
-     * @param $key
+     * @param array $data
+     * @param array $relationship
+     * @param string $key
      *
      * @return array
      */
@@ -503,10 +510,10 @@ class JsonApiSerializer extends ArraySerializer
     }
 
     /**
-     * @param $includeKey
-     * @param $relationships
-     * @param $includeObject
-     * @param $key
+     * @param string $includeKey
+     * @param array $relationships
+     * @param array $includeObject
+     * @param string $key
      *
      * @return array
      */
@@ -538,8 +545,8 @@ class JsonApiSerializer extends ArraySerializer
     }
 
     /**
-     * @param $includeKey
-     * @param $relationships
+     * @param string $includeKey
+     * @param array $relationships
      *
      * @return array
      */
