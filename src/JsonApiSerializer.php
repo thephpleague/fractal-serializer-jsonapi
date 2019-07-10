@@ -166,9 +166,7 @@ class JsonApiSerializer extends ArraySerializer
     }
 
     /**
-     * Serialize the meta.
-     *
-     * @param array $meta
+     * Serialize the null object
      *
      * @return array
      */
@@ -630,9 +628,9 @@ class JsonApiSerializer extends ArraySerializer
     }
 
     /**
-     * @param $includeObjects
-     * @param $linkedIds
-     * @param $serializedData
+     * @param array $includeObjects
+     * @param array $linkedIds
+     * @param array $serializedData
      *
      * @return array
      */
