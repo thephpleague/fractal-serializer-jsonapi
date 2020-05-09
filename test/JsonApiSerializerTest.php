@@ -1,4 +1,5 @@
 <?php
+
 namespace League\Fractal\Test;
 
 use InvalidArgumentException;
