@@ -33,7 +33,7 @@ class TestCase extends PHPUnitTestCase
     {
         parent::expectException($exception);
 
-        if ($message) {
+        if ($message !== null) {
             if ($regex) {
                 $this->expectExceptionMessageRegExp($message);
             } else {
