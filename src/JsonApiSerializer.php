@@ -376,7 +376,7 @@ class JsonApiSerializer extends ArraySerializer
             foreach ($inclusion as $includeKey => $includeObject) {
                 $relationships = $this->buildRelationships($includeKey, $relationships, $includeObject, $key);
                 if (isset($includedData[$key][$includeKey]['meta'])) {
-                    $relationships[$includeKey][$key]['meta'] = $includedData[0][$includeKey]['meta'];
+                    $relationships[$includeKey][$key]['meta'] = $includedData[$key][$includeKey]['meta'];
                 }
             }
         }
