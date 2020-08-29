@@ -3,6 +3,7 @@
 namespace League\Fractal\Test;
 
 use InvalidArgumentException;
+use PHPUnit\Framework\TestCase;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
@@ -17,7 +18,7 @@ class JsonApiSerializerTest extends TestCase
 {
     private $manager;
 
-    public function setUp(): void
+    public function setUp()
     {
         $this->manager = new Manager();
         $this->manager->setSerializer(new JsonApiSerializer());

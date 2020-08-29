@@ -17,7 +17,10 @@ use League\Fractal\Resource\ResourceInterface;
 
 class JsonApiSerializer extends ArraySerializer
 {
+    /** @var string|null */
     protected $baseUrl;
+
+    /** @var array<mixed> */
     protected $rootObjects;
 
     /**
@@ -35,9 +38,9 @@ class JsonApiSerializer extends ArraySerializer
      * Serialize a collection.
      *
      * @param string $resourceKey
-     * @param array $data
+     * @param array<mixed> $data
      *
-     * @return array
+     * @return array<mixed>
      */
     public function collection($resourceKey, array $data)
     {
@@ -54,9 +57,9 @@ class JsonApiSerializer extends ArraySerializer
      * Serialize an item.
      *
      * @param string $resourceKey
-     * @param array $data
+     * @param array<mixed> $data
      *
-     * @return array
+     * @return array<mixed>
      */
     public function item($resourceKey, array $data)
     {
@@ -103,7 +106,7 @@ class JsonApiSerializer extends ArraySerializer
      *
      * @param PaginatorInterface $paginator
      *
-     * @return array
+     * @return array<mixed>
      */
     public function paginator(PaginatorInterface $paginator)
     {
@@ -139,9 +142,9 @@ class JsonApiSerializer extends ArraySerializer
     /**
      * Serialize the meta.
      *
-     * @param array $meta
+     * @param array<mixed> $meta
      *
-     * @return array
+     * @return array<mixed>
      */
     public function meta(array $meta)
     {
@@ -160,7 +163,7 @@ class JsonApiSerializer extends ArraySerializer
     }
 
     /**
-     * @return array
+     * @return array<mixed>
      */
     public function null()
     {
@@ -173,9 +176,9 @@ class JsonApiSerializer extends ArraySerializer
      * Serialize the included data.
      *
      * @param ResourceInterface $resource
-     * @param array $data
+     * @param array<mixed> $data
      *
-     * @return array
+     * @return array<mixed>
      */
     public function includedData(ResourceInterface $resource, array $data)
     {
@@ -206,10 +209,10 @@ class JsonApiSerializer extends ArraySerializer
     }
 
     /**
-     * @param array $data
-     * @param array $includedData
+     * @param array<mixed> $data
+     * @param array<mixed> $includedData
      *
-     * @return array
+     * @return array<mixed>
      */
     public function injectData($data, $includedData)
     {
@@ -229,10 +232,10 @@ class JsonApiSerializer extends ArraySerializer
      * filtered out, in case some object links to the root object in a
      * relationship.
      *
-     * @param array $includedData
-     * @param array $data
+     * @param array<mixed> $includedData
+     * @param array<mixed> $data
      *
-     * @return array
+     * @return array<mixed>
      */
     public function filterIncludes($includedData, $data)
     {
@@ -255,7 +258,7 @@ class JsonApiSerializer extends ArraySerializer
     /**
      * Get the mandatory fields for the serializer
      *
-     * @return array
+     * @return array<mixed>
      */
     public function getMandatoryFields()
     {
@@ -265,7 +268,7 @@ class JsonApiSerializer extends ArraySerializer
     /**
      * Filter function to delete root objects from array.
      *
-     * @param array $object
+     * @param array<mixed> $object
      *
      * @return bool
      */
@@ -277,7 +280,9 @@ class JsonApiSerializer extends ArraySerializer
     /**
      * Set the root objects of the JSON API tree.
      *
-     * @param array $objects
+     * @param array<mixed> $objects
+     *
+     * @return void
      */
     protected function setRootObjects(array $objects = [])
     {
@@ -289,7 +294,7 @@ class JsonApiSerializer extends ArraySerializer
     /**
      * Determines whether an object is a root object of the JSON API tree.
      *
-     * @param array $object
+     * @param array<mixed> $object
      *
      * @return bool
      */
@@ -300,7 +305,7 @@ class JsonApiSerializer extends ArraySerializer
     }
 
     /**
-     * @param array|null $data
+     * @param array<mixed>|null $data
      *
      * @return bool
      */
@@ -315,7 +320,7 @@ class JsonApiSerializer extends ArraySerializer
     }
 
     /**
-     * @param array|null $data
+     * @param array<mixed>|null $data
      *
      * @return bool
      */
@@ -329,7 +334,7 @@ class JsonApiSerializer extends ArraySerializer
     }
 
     /**
-     * @param array|null $data
+     * @param array<mixed>|null $data
      *
      * @return bool
      */
@@ -343,10 +348,10 @@ class JsonApiSerializer extends ArraySerializer
     }
 
     /**
-     * @param array $data
-     * @param array $relationships
+     * @param array<mixed> $data
+     * @param array<mixed> $relationships
      *
-     * @return array
+     * @return array<mixed>
      */
     protected function fillRelationships($data, $relationships)
     {
@@ -364,9 +369,9 @@ class JsonApiSerializer extends ArraySerializer
     }
 
     /**
-     * @param array $includedData
+     * @param array<mixed> $includedData
      *
-     * @return array
+     * @return array<mixed>
      */
     protected function parseRelationships($includedData)
     {
@@ -385,7 +390,7 @@ class JsonApiSerializer extends ArraySerializer
     }
 
     /**
-     * @param array $data
+     * @param array<mixed> $data
      *
      * @return integer
      */
@@ -402,9 +407,9 @@ class JsonApiSerializer extends ArraySerializer
     /**
      * Keep all sideloaded inclusion data on the top level.
      *
-     * @param array $data
+     * @param array<mixed> $data
      *
-     * @return array
+     * @return array<mixed>
      */
     protected function pullOutNestedIncludedData(array $data)
     {
@@ -435,9 +440,9 @@ class JsonApiSerializer extends ArraySerializer
     /**
      * Check if the objects are part of a collection or not
      *
-     * @param array $includeObject
+     * @param array<mixed> $includeObject
      *
-     * @return array
+     * @return array<mixed>
      */
     private function createIncludeObjects($includeObject)
     {
@@ -455,7 +460,9 @@ class JsonApiSerializer extends ArraySerializer
     /**
      * Sets the RootObjects, either as collection or not.
      *
-     * @param array $data
+     * @param array<mixed> $data
+     *
+     * @return void
      */
     private function createRootObjects($data)
     {
@@ -470,11 +477,11 @@ class JsonApiSerializer extends ArraySerializer
     /**
      * Loops over the relationships of the provided data and formats it
      *
-     * @param array $data
-     * @param array $relationship
+     * @param array<mixed> $data
+     * @param array<mixed> $relationship
      * @param string $key
      *
-     * @return array
+     * @return array<mixed>
      */
     private function fillRelationshipAsCollection($data, $relationship, $key)
     {
@@ -487,11 +494,11 @@ class JsonApiSerializer extends ArraySerializer
 
 
     /**
-     * @param array $data
-     * @param array $relationship
+     * @param array<mixed> $data
+     * @param array<mixed> $relationship
      * @param string $key
      *
-     * @return array
+     * @return array<mixed>
      */
     private function fillRelationshipAsSingleResource($data, $relationship, $key)
     {
@@ -502,11 +509,11 @@ class JsonApiSerializer extends ArraySerializer
 
     /**
      * @param mixed $includeKey
-     * @param array $relationships
-     * @param array|null $includeObject
+     * @param array<mixed> $relationships
+     * @param array<mixed>|null $includeObject
      * @param string $key
      *
-     * @return array
+     * @return array<mixed>
      */
     private function buildRelationships($includeKey, $relationships, $includeObject, $key)
     {
@@ -537,9 +544,9 @@ class JsonApiSerializer extends ArraySerializer
 
     /**
      * @param mixed $includeKey
-     * @param array $relationships
+     * @param array<mixed> $relationships
      *
-     * @return array
+     * @return array<mixed>
      */
     private function addIncludekeyToRelationsIfNotSet($includeKey, $relationships)
     {
@@ -552,10 +559,10 @@ class JsonApiSerializer extends ArraySerializer
     }
 
     /**
-     * @param array $includeObject
-     * @param array $relationship
+     * @param array<mixed> $includeObject
+     * @param array<mixed> $relationship
      *
-     * @return array
+     * @return array<mixed>
      */
     private function addIncludedDataToRelationship($includeObject, $relationship)
     {
@@ -569,8 +576,14 @@ class JsonApiSerializer extends ArraySerializer
         return $relationship;
     }
 
+
     /**
-     * {@inheritdoc}
+     * Hook for the serializer to inject custom data based on the available includes of the resource.
+     *
+     * @param array<mixed> $data
+     * @param array<mixed> $availableIncludes
+     *
+     * @return array<mixed>
      */
     public function injectAvailableIncludeData($data, $availableIncludes)
     {
@@ -597,8 +610,9 @@ class JsonApiSerializer extends ArraySerializer
     /**
      * Adds links for all available includes to a single resource.
      *
-     * @param array $resource         The resource to add relationship links to
+     * @param array<mixed> $resource The resource to add relationship links to
      * @param string $relationshipKey The resource key of the relationship
+     * @return array<mixed>
      */
     private function addRelationshipLinks($resource, $relationshipKey)
     {
@@ -620,11 +634,11 @@ class JsonApiSerializer extends ArraySerializer
     }
 
     /**
-     * @param array $includeObjects
-     * @param array $linkedIds
-     * @param array $serializedData
+     * @param array<mixed> $includeObjects
+     * @param array<mixed> $linkedIds
+     * @param array<mixed> $serializedData
      *
-     * @return array
+     * @return array<mixed>
      */
     private function serializeIncludedObjectsWithCacheKey($includeObjects, $linkedIds, $serializedData)
     {
