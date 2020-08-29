@@ -1835,7 +1835,8 @@ class JsonApiSerializerTest extends TestCase
 
     public function testExceptionThrownIfResourceHasNoId()
     {
-        $this->expectException(InvalidArgumentException::class, 'JSON API resource objects MUST have a valid id');
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('JSON API resource objects MUST have a valid id');
 
         $bookData = [
             'title' => 'Foo',
