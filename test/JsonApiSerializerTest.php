@@ -3,6 +3,7 @@
 namespace League\Fractal\Test;
 
 use InvalidArgumentException;
+use PHPUnit\Framework\TestCase;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
@@ -17,7 +18,10 @@ class JsonApiSerializerTest extends TestCase
 {
     private $manager;
 
-    public function setUp(): void
+    /**
+     * @before
+     */
+    public function open()
     {
         $this->manager = new Manager();
         $this->manager->setSerializer(new JsonApiSerializer());
@@ -1831,7 +1835,8 @@ class JsonApiSerializerTest extends TestCase
 
     public function testExceptionThrownIfResourceHasNoId()
     {
-        $this->expectException(InvalidArgumentException::class, 'JSON API resource objects MUST have a valid id');
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('JSON API resource objects MUST have a valid id');
 
         $bookData = [
             'title' => 'Foo',
