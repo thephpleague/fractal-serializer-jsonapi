@@ -18,7 +18,10 @@ class JsonApiSerializerTest extends TestCase
 {
     private $manager;
 
-    public function setUp()
+    /**
+     * @before
+     */
+    public function open()
     {
         $this->manager = new Manager();
         $this->manager->setSerializer(new JsonApiSerializer());
